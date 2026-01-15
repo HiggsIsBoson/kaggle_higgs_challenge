@@ -66,7 +66,8 @@ conda info -e
 # ML実装のminimal example
 - `test_DNN.ipynb` : 3 layers densely connected DNN  
 
-  <img width="300" height="300" alt="model_diagram" src="https://github.com/user-attachments/assets/1714906a-806b-4a98-9666-9f8f9bf06c38" />  
+  <img width="300" height="300" alt="model_diagram" src="https://github.com/user-attachments/assets/1714906a-806b-4a98-9666-9f8f9bf06c38" />     
+  
   * 分離能力はいかほどか？
   * Overtrainingはしているか？
   * Overtrainingしている気配がなかった場合はもっと複雑なモデルを使えるはずである。
@@ -74,7 +75,8 @@ conda info -e
 # 感度の指標
 - $\mathrm{AMS}=\sqrt{2\left(\left(s+b+b_r\right) \log \left(1+\frac{s}{b+b_r}\right)-s\right)}$
   * `s` : Scoreでカットした後のsignalのイベント数
-  * `b` : Scoreでカットした後のBGのイベント数
+  * `b` : Scoreでカットした後のBGのイベント数の期待値
+  * `b_r` : `b`に対する系統効果
   * Weightをかける必要があることに注意
  
 # 提出
