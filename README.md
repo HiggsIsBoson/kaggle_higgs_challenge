@@ -45,7 +45,26 @@ conda info -e
   * ターミナルから`which conda`と打って出てくるのがconda path
 - ipynbファイルを開く
 - 右上の`Select kernel` → `ML`を選ぶ。これでさっき作ったconda環境でスクリプトを走らせることができる。
-  
 
+# データの構造
+### Metadata
+- `Label` : `s`がsignal, `b`がbackground.
+- `Weight` : イベントにかけるべきweight (cross-sectionみたいなもの)
+- `EventId` : イベントの番号  
+
+### Kinematic variables 
+- PRI_xxx :  low level feature
+   * jet, tau, leptonとかの4-vector
+- DER_xxx : high level feature
+   * `DER_mass_MMC` : $\tau$はneutrinoを出すので完全に再構成できないが、likelihoodを使って統計的に尤もらしいneutrinoの方向を決めて$\tau$の4-vectorを再構成して組んだ, $\tau\tau$のinvariant masss. $Z \rightarrow \tau\tau$と$h \rightarrow \tau \tau$を分離する上で最も強力。
+   * `DER_mass_vis` : $\tau$の崩壊で出てきたneutrino以外の粒子はvisible tauと呼ぶが, その2つのvisible tauのinvariant mass.
+   * `DER_mass_transverse_met_lep` : METとleptonによるtransverse mass ($m_T$)。$m_T$とは, 2つの粒子のpzをそれぞれ0と置いた時のinvariant mass。METのようなpz成分がわからないときにmassの情報を引き出すのに使う。Invariant mass $m_{inv}$よりは必ず小さいので, $W \rightarrow \ell \nu$みたいなイベントにおいて$m_T(\ell, \text{MET})$みたいなものを計算するとW massでcut offを持つような分布になる。なので$W \rightarrow \ell \nu$のようなBGを落とすのによく使われる。
+
+### 分布をまずは書いて形を考えてみよう
+- `draw_plots.ipynb` : `training.csv`の中のkinematic variableを全部書き出す。
+
+# ML実装のminimal example
+- `test_DNN.ipynb` : 3 layers densely connected DNN  
+  <img width="300" height="300" alt="model_diagram" src="https://github.com/user-attachments/assets/1714906a-806b-4a98-9666-9f8f9bf06c38" />
 
 
