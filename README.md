@@ -85,9 +85,13 @@ conda info -e
   * `b_r` : `b`に対する系統効果
   * Weightをかける必要があることに注意
  
-# 提出
+# レポートの提出
   * `test_DNN.ipynb`のようなコードを作る.
   * A4 1ページくらい簡単なレポートのPDFも提出する.
-  * 自分のbranchを作成しrepositoryにpush。branch名は`submit-<family name>`とすること。
+  * 自分のbranchを作ってこれらをpush
+     * 自分のbranchを作成 : `git checkout -b submit-<family name>`
+     * ファイルを追加 (`git add <files>`)
+     * Commit : `git commit -m <comment>`
+     * Repositoryにpush : `git push origin submit-<family name>`
   * 締切 : 2/27(金)
 
