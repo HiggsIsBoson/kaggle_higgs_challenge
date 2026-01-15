@@ -58,10 +58,13 @@ conda info -e
 ### Kinematic variables 
 - PRI_xxx :  low level feature
    * jet, tau, leptonとかの4-vector
+   * `PRI_met` : Missing ET ("MET") の大きさ。pp衝突では陽子の内部要素 (gluonやquark : "parton") 同士の衝突になるので, 重心系の運動量はz方向には全く釣り合わず, 毎イベント前後方に大きくboostする。一方で陽子やpartonは横方向の運動量はほぼ0なので, 重心系は横方向には動いていない。よって終状態に出てきた粒子の横方向の運動量のsumは0となる。ニュートリノなどの検出されない粒子たちがイベントにいた場合は, 検出される粒子の運動量和の横方向成分にはインバランスが生じる。このインバランスがMETである。
+   * `PRI_met_phi` : METの角度。
 - DER_xxx : high level feature
-   * `DER_mass_MMC` : $\tau$はneutrinoを出すので完全に再構成できないが、likelihoodを使って統計的に尤もらしいneutrinoの方向を決めて$\tau$の4-vectorを再構成して組んだ, $\tau\tau$のinvariant masss. $Z \rightarrow \tau\tau$と$h \rightarrow \tau \tau$を分離する上で最も強力。
-   * `DER_mass_vis` : $\tau$の崩壊で出てきたneutrino以外の粒子はvisible tauと呼ぶが, その2つのvisible tauのinvariant mass.
-   * `DER_mass_transverse_met_lep` : METとleptonによるtransverse mass ($m_T$)。$m_T$とは, 2つの粒子のpzをそれぞれ0と置いた時のinvariant mass。METのようなpz成分がわからないときにmassの情報を引き出すのに使う。Invariant mass $m_{inv}$よりは必ず小さいので, $W \rightarrow \ell \nu$みたいなイベントにおいて$m_T(\ell, \text{MET})$みたいなものを計算するとW massでcut offを持つような分布になる。なので$W \rightarrow \ell \nu$のようなBGを落とすのによく使われる。
+   * `DER_mass_MMC` : $\tau$はneutrinoを出すので完全に再構成できないが、likelihoodを使って統計的に尤もらしいneutrinoの方向を決めて $\tau$ の4-vectorを再構成して組んだ,
+      $\tau\tau$ のinvariant masss. $Z \rightarrow \tau\tau$ と $h \rightarrow \tau\tau$ を分離する上で最も強力。
+   * `DER_mass_vis` : $\tau$ の崩壊で出てきたneutrino以外の粒子はvisible tauと呼ぶが, その2つのvisible tauのinvariant mass.
+   * `DER_mass_transverse_met_lep` : METとleptonによるtransverse mass ($m_T$)。$m_T$ とは, 2つの粒子のpzをそれぞれ0と置いた時のinvariant mass。METのようなpz成分がわからないときにmassの情報を引き出すのに使う。Invariant mass $m_{inv}$ よりは必ず小さいので, $W \rightarrow \ell \nu$ みたいなイベントにおいて $m_T(\ell, \text{MET})$ みたいなものを計算するとW massでcut offを持つような分布になる。なので $W \rightarrow \ell \nu$ のようなBGを落とすのによく使われる。
 
 ### 分布をまずは書いて形を考えてみよう
 - `draw_plots.ipynb` : `training.csv`の中のkinematic variableを全部書き出す。
