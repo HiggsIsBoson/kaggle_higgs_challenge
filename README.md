@@ -1,4 +1,4 @@
-# Higgs, ATLASにまつわるintroduction
+# Introduction (Higgs/ATLAS検出器)
 https://drive.google.com/file/d/1G3f8xS6PMnNGI_XTix6FTS9qSVav5oZt/view?usp=sharing
 
 # Anacondaをインストール
