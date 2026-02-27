@@ -1,7 +1,0 @@
-.DS_Store
-*#
-*~
-plots_kinematics/
-*.png
-training.csv
-test.csv
